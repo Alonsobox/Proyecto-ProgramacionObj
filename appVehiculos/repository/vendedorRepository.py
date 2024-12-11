@@ -3,7 +3,7 @@ from utilitarios.ConexionBaseDatos import ConexionBaseDatos
 class VendedorRepository:
 
     def __init__(self):
-        self.conexion = ConexionBaseDatos().getConexion()
+        self.conexion = ConexionBaseDatos().getConection()
 
     def listarVendedor(self):
         cursor = self.conexion.cursor()
