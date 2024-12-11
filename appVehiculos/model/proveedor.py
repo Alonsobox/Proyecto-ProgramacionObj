@@ -7,3 +7,9 @@ class Proveedor:
         self.stockPro= _stockPro
         self.direcPro= _direcPro
         
+
+
+    #metodo que vamos a usar de ejemplo para sobreescribir    
+
+    def atencionCliente(self):
+        print("El personal debe atender a los clientes")

@@ -6,3 +6,12 @@ class Concesionaria:
         self.canTrabCon= _canTrabCon
         self.codPro= _codPro
         self.direcCon= _direcCon
+
+    
+    def aniversario(self):
+        print("Aniversaio de la Concesionaria")
+
+    def capacitacion(self):
+        print("Capacitacion de personal")
+
+    

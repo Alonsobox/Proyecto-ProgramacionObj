@@ -4,3 +4,4 @@ class Marca:
         self.codMar=_codMar
         self.nombreMar=_nombreMar
         self.stockMar=_stockMAr
+    
