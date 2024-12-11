@@ -15,7 +15,7 @@ class ProveedorRepository:
         cursor= self.conexion.cursor()
         sql = "select cod_proveedor, nombre_proveedor, telefono_proveedor, stock_proveedor, direccion_proveedor from proveedor WHERE cod_proveedor = '{}'".format(codPro)
         cursor.execute(sql)
-        return cursor.fetchall()
+        return cursor.fetchone()
     
     def insertarProveedor(self, objProveedor):
         cursor = self.conexion.cursor()
