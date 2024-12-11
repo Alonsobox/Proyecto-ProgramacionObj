@@ -7,13 +7,13 @@ class VendedorRepository:
 
     def listarVendedor(self):
         cursor = self.conexion.cursor()
-        sql= "select * from vendedor"
+        sql= "select cod_vendedor, nombre_vendedor, apellido_vendedor, sueldo_vendedor, ventas_vendedor from vendedor "
         cursor.execute(sql)
         return cursor.fetchall()
         
     def obtenerVendedor(self,codPer):
         cursor = self.conexion.cursor()
-        sql = "select * from vendedor where cod_vendedor = '{}'".format(codPer)
+        sql = "select cod_vendedor, nombre_vendedor, apellido_vendedor, sueldo_vendedor, ventas_vendedor from vendedor where cod_vendedor = '{}".format(codPer)
         cursor.execute(sql)
         return cursor.fetchone()
     
