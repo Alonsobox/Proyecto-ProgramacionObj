@@ -10,5 +10,5 @@ class ConexionBaseDatos:
             'Trusted_Connection=yes;'
         )
     
-    def getConexion(self):
+    def getConection(self):
         return self.conexion

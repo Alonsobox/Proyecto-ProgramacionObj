@@ -13,13 +13,13 @@ class VendedorRepository:
         
     def obtenerVendedor(self,codPer):
         cursor = self.conexion.cursor()
-        sql = "select * from vendedor".format(codPer)
+        sql = "select * from vendedor where cod_vendedor = '{}'".format(codPer)
         cursor.execute(sql)
         return cursor.fetchone()
     
     def insertarVendedor(self,objVendedor):
         cursor= self.conexion.cursor()
-        sql = "INSERT INTO vendedor (cod_vendedor,nombre_vendedor,apellido_vendedor,sueldo_vendedor,ventas_vendedor) VALUES ('{}','{}','{}','{}','{}')".format(objVendedor.codPer, objVendedor.nombrePer, objVendedor.apelliPer, objVendedor.sueldoVen, objVendedor.ventasVen)
+        sql = "INSERT INTO vendedor (nombre_vendedor,apellido_vendedor,sueldo_vendedor,ventas_vendedor) VALUES ('{}','{}','{}','{}')".format(objVendedor.nombrePer, objVendedor.apelliPer, objVendedor.sueldoVen, objVendedor.ventasVen)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
