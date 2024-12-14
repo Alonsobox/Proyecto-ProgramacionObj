@@ -19,7 +19,7 @@ class VehiculoRepository:
     
     def insertarVehiculo(self, objVehiculo):
         cursor = self.conexion.cursor()
-        sql = "INSERT INTO vehiculo (color_vehiculo, año_vehiculo, combus_vehiculo, cod_marca, cod_modelo) VALUES ('{}','{}','{}','{}','{}') ".format(objVehiculo.colorVeh, objVehiculo.añoVeh, objVehiculo.combusVeh, objVehiculo.codMar, objVehiculo.codMod)
+        sql = "INSERT INTO vehiculo (cod_vehiculo,color_vehiculo, año_vehiculo, combus_vehiculo, cod_marca, cod_modelo) VALUES ('{}','{}','{}','{}','{}','{}') ".format(objVehiculo.codVeh,objVehiculo.colorVeh, objVehiculo.añoVeh, objVehiculo.combusVeh, objVehiculo.codMar, objVehiculo.codMod)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
