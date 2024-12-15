@@ -14,6 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -23,16 +24,33 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuMantenimientos">
+   <widget class="QMenu" name="menuPersonas">
     <property name="title">
-     <string>Mantenimientos</string>
+     <string>Personas</string>
     </property>
     <addaction name="actionvendedor"/>
-    <addaction name="actionAlumno"/>
    </widget>
-   <addaction name="menuMantenimientos"/>
+   <widget class="QMenu" name="menuDatos_del_Auto">
+    <property name="title">
+     <string>Consulta Producto</string>
+    </property>
+    <addaction name="actionVehiculo"/>
+   </widget>
+   <widget class="QMenu" name="menuImprimir">
+    <property name="title">
+     <string>Imprimir</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAdicional">
+    <property name="title">
+     <string>Adicional</string>
+    </property>
+   </widget>
+   <addaction name="menuImprimir"/>
+   <addaction name="menuPersonas"/>
+   <addaction name="menuDatos_del_Auto"/>
+   <addaction name="menuAdicional"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionvendedor">
    <property name="text">
     <string>Vendedor</string>
@@ -41,6 +59,11 @@
   <action name="actionAlumno">
    <property name="text">
     <string>Alumno</string>
+   </property>
+  </action>
+  <action name="actionVehiculo">
+   <property name="text">
+    <string>Vehiculo</string>
    </property>
   </action>
  </widget>

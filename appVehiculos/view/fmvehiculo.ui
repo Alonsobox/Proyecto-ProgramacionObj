@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>808</width>
+    <width>826</width>
     <height>759</height>
    </rect>
   </property>
@@ -167,16 +167,6 @@
       <string>Combustion</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateVehiculo">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>30</y>
-       <width>231</width>
-       <height>41</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
@@ -205,6 +195,16 @@
       <rect>
        <x>500</x>
        <y>90</y>
+       <width>231</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtAno">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>40</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -269,17 +269,12 @@
      </column>
      <column>
       <property name="text">
-       <string>Año</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Apellidos</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Color</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Año</string>
       </property>
      </column>
      <column>

@@ -26,7 +26,7 @@ class VehiculoRepository:
 
     def actualizarVehiculo(self, objVehiculo):
         cursor = self.conexion.cursor()
-        sql = "UPDATE vehiculo SET color_vehiculo = '{}', año_vehiculo = '{}', combus_vehiculo = '{}', cod_marca = '{}', cod_modelo = '{}' WHERE  cod_vehiculo = '{}'".format(objVehiculo.colorVeh, objVehiculo.añoVeh, objVehiculo.combusVeh, objVehiculo.codMar, objVehiculo.codMod, objVehiculo.cod_vehiculo)
+        sql = "UPDATE vehiculo SET color_vehiculo = '{}', año_vehiculo = '{}', combus_vehiculo = '{}', cod_marca = '{}', cod_modelo = '{}' WHERE  cod_vehiculo = '{}'".format(objVehiculo.colorVeh, objVehiculo.añoVeh, objVehiculo.combusVeh, objVehiculo.codMar, objVehiculo.codMod, objVehiculo.codVeh)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
