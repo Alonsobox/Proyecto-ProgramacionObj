@@ -56,7 +56,7 @@ class VendedorController:
         self.ventana.tblVendedores.setRowCount(len(vendedores))
         fila = 0
         for objVendedor in vendedores:
-            # if len(objVendedor) >= 5:  
+            # if len(objVendedor) >= 5:  # Verifica que hay al menos 5 elementos
             self.ventana.tblVendedores.setItem(fila, 0, QTableWidgetItem(str(objVendedor[0])))
             self.ventana.tblVendedores.setItem(fila, 1, QTableWidgetItem(str(objVendedor[1])))
             self.ventana.tblVendedores.setItem(fila, 2, QTableWidgetItem(str(objVendedor[2])))
