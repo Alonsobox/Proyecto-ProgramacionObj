@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QTableWidgetItem
 from PyQt5.QtCore import QDate
 from repository.vehiculoRepository import VehiculoRepository
-from repository.seleccionCombustion import SeleccionCombustion
+from repository.combustionRepository import SeleccionCombustion
 from repository.seleccionMarca import SeleccionMarca
 from repository.seleccionModelo import SeleccionModelo
 from model.vehiculo import Vehiculo
@@ -11,7 +11,7 @@ class VehiculoController:
     def __init__(self):
         self.ventana = uic.loadUi("view/fmvehiculo.ui")
         self.vehiculoRepository = VehiculoRepository()
-        self.seleccionCombustion = SeleccionCombustion()
+        self.seleccionCombustion= SeleccionCombustion()
         self.seleccionMarca = SeleccionMarca()
         self.seleccionarModelo = SeleccionModelo()
         self.listarVehiculo()
@@ -47,10 +47,10 @@ class VehiculoController:
         codVeh = self.ventana.txtCodigo.text()
         colorVeh = self.ventana.txtColor.text()
         añoVeh = self.ventana.txtAno.text()
-        combusVeh = self.ventana.cboCombustion.currentData()
+        codCombus = self.ventana.cboCombustion.currentData()
         codMar = self.ventana.cboMarca.currentData()
         codMod = self.ventana.cboModelo.currentData()
-        objVehiculo = Vehiculo(codVeh,colorVeh,añoVeh,combusVeh,codMar,codMod)
+        objVehiculo = Vehiculo(codVeh,colorVeh,añoVeh,codCombus,codMar,codMod)
 
         if self.vehiculoRepository.obtenerVehiculo(objVehiculo.codVeh) is None:## busca el vendedor por codigo, sino lo encuentra inserta
             self.vehiculoRepository.insertarVehiculo(objVehiculo)               
@@ -77,8 +77,12 @@ class VehiculoController:
             fila +=1
 
     def listarSeleccionCombustion(self):
-        combustion = ["GLP", "Electrico", "Gasolida"] 
-        self.ventana.cboCombustion.addItems(combustion)
+        combustion = self.seleccionCombustion.listarSeleccionCombustion()
+        for combu in combustion:
+            self.ventana.cboCombustion.addItem(combu[1],combu[0])
+
+        # combustion = ["GLP", "Electrico", "Gasolida"] 
+        # self.ventana.cboCombustion.addItems(combustion)
 
     def listarSeleccionMarca(self):
         selecciones = self.seleccionMarca.listarSeleccionMarca()
