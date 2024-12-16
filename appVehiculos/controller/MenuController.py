@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication
 from controller.vendedorController import VendedorController
 from controller.vehiculoController import VehiculoController
 from controller.proveedorController import ProveedorController
+from controller.marcaController import MarcaController
 
 class MenuController:
 
@@ -12,6 +13,7 @@ class MenuController:
         self.ventana.show()
         self.ventana.actionvendedor.triggered.connect(self.actionvendedorclick)
         self.ventana.actionVehiculo.triggered.connect(self.actionVehiculoclick)
+        self.ventana.actionMarca.triggered.connect(self.actionMarcaclick)
         self.ventana.actionProveedor.triggered.connect(self.actionProveedorclick)
         app.exec()
 
@@ -26,3 +28,7 @@ class MenuController:
     def actionProveedorclick(self):
         self.fmproveedor = ProveedorController()
         self.fmproveedor.ventana.show()
+
+    def actionMarcaclick(self):
+        self.fmmarca = MarcaController()
+        self.fmmarca.ventana.show()

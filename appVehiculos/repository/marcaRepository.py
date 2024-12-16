@@ -19,7 +19,7 @@ class MarcaRepository:
     
     def insertarMarca(self, objMarca):
         cursor = self.conexion.cursor()
-        sql = "INSERT INTO marca (nombre_marca, stock_marca) VALUES ('{}','{}')".format(objMarca.nombreMar, objMarca.stockMar)
+        sql = "INSERT INTO marca (cod_marca,nombre_marca, stock_marca) VALUES ('{}','{}','{}')".format(objMarca.codMar,objMarca.nombreMar, objMarca.stockMar)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()

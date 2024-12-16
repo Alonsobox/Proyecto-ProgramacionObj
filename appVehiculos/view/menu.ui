@@ -35,6 +35,7 @@
      <string>Consulta Producto</string>
     </property>
     <addaction name="actionVehiculo"/>
+    <addaction name="actionMarca"/>
    </widget>
    <widget class="QMenu" name="menuImprimir">
     <property name="title">
@@ -70,6 +71,11 @@
   <action name="actionProveedor">
    <property name="text">
     <string>Proveedor</string>
+   </property>
+  </action>
+  <action name="actionMarca">
+   <property name="text">
+    <string>Marca</string>
    </property>
   </action>
  </widget>
