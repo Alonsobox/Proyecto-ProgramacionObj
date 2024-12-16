@@ -233,22 +233,22 @@
      </column>
      <column>
       <property name="text">
-       <string>Telefono</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Nombre</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Direccion</string>
+       <string>Telefono</string>
       </property>
      </column>
      <column>
       <property name="text">
        <string>Stock</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Direccion</string>
       </property>
      </column>
     </widget>

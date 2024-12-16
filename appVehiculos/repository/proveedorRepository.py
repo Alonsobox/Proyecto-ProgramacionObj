@@ -19,7 +19,7 @@ class ProveedorRepository:
     
     def insertarProveedor(self, objProveedor):
         cursor = self.conexion.cursor()
-        sql = "INSERT INTO proveedor (nombre_proveedor, telefono_proveedor, stock_proveedor, direccion_proveedor) VALUES ('{}','{}','{}','{}')".format(objProveedor.nombrePro, objProveedor.telfPro, objProveedor.stockPro, objProveedor.direcPro)
+        sql = "INSERT INTO proveedor (cod_proveedor,nombre_proveedor, telefono_proveedor, stock_proveedor, direccion_proveedor) VALUES ('{}','{}','{}','{}','{}')".format(objProveedor.codPro,objProveedor.nombrePro, objProveedor.telfPro, objProveedor.stockPro, objProveedor.direcPro)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()

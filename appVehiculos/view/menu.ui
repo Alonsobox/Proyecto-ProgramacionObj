@@ -45,6 +45,7 @@
     <property name="title">
      <string>Adicional</string>
     </property>
+    <addaction name="actionProveedor"/>
    </widget>
    <addaction name="menuImprimir"/>
    <addaction name="menuPersonas"/>
@@ -64,6 +65,11 @@
   <action name="actionVehiculo">
    <property name="text">
     <string>Vehiculo</string>
+   </property>
+  </action>
+  <action name="actionProveedor">
+   <property name="text">
+    <string>Proveedor</string>
    </property>
   </action>
  </widget>
