@@ -5,6 +5,7 @@ from controller.vehiculoController import VehiculoController
 from controller.proveedorController import ProveedorController
 from controller.marcaController import MarcaController
 from controller.modeloController import ModeloController
+from controller.concesionariaController import ConcesionariaoController
 
 class MenuController:
 
@@ -17,6 +18,7 @@ class MenuController:
         self.ventana.actionMarca.triggered.connect(self.actionMarcaclick)
         self.ventana.actionModelo.triggered.connect(self.actionModeloclick)
         self.ventana.actionProveedor.triggered.connect(self.actionProveedorclick)
+        self.ventana.actionConcesionaria.triggered.connect(self.actionConcesionariaclick)
         app.exec()
 
     def actionvendedorclick(self):
@@ -38,3 +40,7 @@ class MenuController:
     def actionModeloclick(self):
         self.fmmodelo = ModeloController()
         self.fmmodelo.ventana.show()
+
+    def actionConcesionariaclick(self):
+        self.fmconcesionaria = ConcesionariaoController()
+        self.fmconcesionaria.ventana.show()

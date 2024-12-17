@@ -48,6 +48,7 @@
      <string>Adicional</string>
     </property>
     <addaction name="actionProveedor"/>
+    <addaction name="actionConcesionaria"/>
    </widget>
    <addaction name="menuImprimir"/>
    <addaction name="menuPersonas"/>
@@ -82,6 +83,11 @@
   <action name="actionModelo">
    <property name="text">
     <string>Modelo</string>
+   </property>
+  </action>
+  <action name="actionConcesionaria">
+   <property name="text">
+    <string>Concesionaria</string>
    </property>
   </action>
  </widget>

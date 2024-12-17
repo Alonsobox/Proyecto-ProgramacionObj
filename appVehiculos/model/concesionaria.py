@@ -4,8 +4,8 @@ class Concesionaria:
         self.codCon= _codCon
         self.nombreCon= _nombreCon
         self.canTrabCon= _canTrabCon
-        self.direcCon= _direcCon
         self.codPro= _codPro
+        self.direcCon= _direcCon
 
     
     def aniversario(self):
