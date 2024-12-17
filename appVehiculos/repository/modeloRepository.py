@@ -19,7 +19,7 @@ class ModeloRepository:
     
     def insertarModelo(self,objModelo):
         cursor = self.conexion.cursor()
-        sql = "INSERT INTO modelo ( diseño_modelo, tecnologia_modelo, seguridad_modelo, interior_modelo, precio) VALUES ('{}','{}','{}','{}','{}') ".format(objModelo.diseñoMod, objModelo.tecnologiaMod, objModelo.seguridadMod, objModelo.interiorMod, objModelo.precio)
+        sql = "INSERT INTO modelo ( cod_modelo,diseño_modelo, tecnologia_modelo, seguridad_modelo, interior_modelo, precio) VALUES ('{}','{}','{}','{}','{}','{}') ".format(objModelo.codMod,objModelo.diseñoMod, objModelo.tecnologiaMod, objModelo.seguridadMod, objModelo.interiorMod, objModelo.precio)
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
