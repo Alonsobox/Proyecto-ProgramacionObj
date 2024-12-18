@@ -63,7 +63,7 @@
      <property name="geometry">
       <rect>
        <x>390</x>
-       <y>40</y>
+       <y>90</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -72,9 +72,9 @@
     <widget class="QLineEdit" name="txtApellido">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>90</y>
-       <width>231</width>
+       <x>110</x>
+       <y>140</y>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
@@ -82,8 +82,8 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>90</y>
+       <x>20</x>
+       <y>140</y>
        <width>71</width>
        <height>31</height>
       </rect>
@@ -142,7 +142,7 @@
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>40</y>
+       <y>90</y>
        <width>71</width>
        <height>31</height>
       </rect>
@@ -154,8 +154,8 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>140</y>
+       <x>310</x>
+       <y>40</y>
        <width>71</width>
        <height>31</height>
       </rect>
@@ -167,9 +167,9 @@
     <widget class="QLineEdit" name="txtTrabajo">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>140</y>
-       <width>171</width>
+       <x>390</x>
+       <y>40</y>
+       <width>231</width>
        <height>31</height>
       </rect>
      </property>
@@ -256,11 +256,6 @@
      </column>
      <column>
       <property name="text">
-       <string>Telefono</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Nombres</string>
       </property>
      </column>
@@ -272,6 +267,11 @@
      <column>
       <property name="text">
        <string>Trabajo</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Telefono</string>
       </property>
      </column>
      <column>

@@ -29,6 +29,7 @@
      <string>Personas</string>
     </property>
     <addaction name="actionvendedor"/>
+    <addaction name="actionCliente"/>
    </widget>
    <widget class="QMenu" name="menuDatos_del_Auto">
     <property name="title">
@@ -88,6 +89,11 @@
   <action name="actionConcesionaria">
    <property name="text">
     <string>Concesionaria</string>
+   </property>
+  </action>
+  <action name="actionCliente">
+   <property name="text">
+    <string>Cliente</string>
    </property>
   </action>
  </widget>
