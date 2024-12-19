@@ -43,6 +43,7 @@
     <property name="title">
      <string>Imprimir</string>
     </property>
+    <addaction name="actionFactura"/>
    </widget>
    <widget class="QMenu" name="menuAdicional">
     <property name="title">
@@ -94,6 +95,11 @@
   <action name="actionCliente">
    <property name="text">
     <string>Cliente</string>
+   </property>
+  </action>
+  <action name="actionFactura">
+   <property name="text">
+    <string>Factura</string>
    </property>
   </action>
  </widget>

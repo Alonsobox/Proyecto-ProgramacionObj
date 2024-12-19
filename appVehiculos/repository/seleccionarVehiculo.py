@@ -1,12 +1,12 @@
 from utilitarios.ConexionBaseDatos import ConexionBaseDatos
 
-class SeleccionMarca:
+class SeleccionarVehiculo:
 
     def __init__(self):
         self.conexion = ConexionBaseDatos().getConection()
 
-    def listarSeleccionMarca(self):
+    def listarSeleccionVehiculo(self):
         cursor = self.conexion.cursor()
-        sql = "select cod_marca, nombre_marca from marca"
+        sql = "select v.cod_vehiculo, m.nombre_marca from vehiculo v inner join marca m on v.cod_marca= m.cod_marca"
         cursor.execute(sql)
         return cursor.fetchall()

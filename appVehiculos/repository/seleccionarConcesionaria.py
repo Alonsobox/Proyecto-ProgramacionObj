@@ -1,12 +1,12 @@
 from utilitarios.ConexionBaseDatos import ConexionBaseDatos
 
-class SeleccionMarca:
+class SeleccionarConcesionaria:
 
     def __init__(self):
         self.conexion = ConexionBaseDatos().getConection()
 
-    def listarSeleccionMarca(self):
+    def listarSeleccionConcesionaria(self):
         cursor = self.conexion.cursor()
-        sql = "select cod_marca, nombre_marca from marca"
+        sql = "select c.cod_concesionaria, c.nombre_concesionaria from concesionaria c"
         cursor.execute(sql)
         return cursor.fetchall()

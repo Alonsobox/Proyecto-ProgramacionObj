@@ -59,16 +59,6 @@
       <string>Nombre Cliente:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txtApellido">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>90</y>
-       <width>231</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
@@ -141,16 +131,6 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txtNombre">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>90</y>
-       <width>171</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
@@ -164,35 +144,12 @@
       <string>Fecha:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>90</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Apellido Cliente:</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="dateFecha">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>30</y>
-       <width>231</width>
-       <height>41</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>140</y>
-       <width>91</width>
+       <x>360</x>
+       <y>90</y>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -204,7 +161,7 @@
      <property name="geometry">
       <rect>
        <x>500</x>
-       <y>140</y>
+       <y>90</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -237,7 +194,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>190</y>
+       <y>140</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -250,7 +207,27 @@
      <property name="geometry">
       <rect>
        <x>500</x>
-       <y>190</y>
+       <y>140</y>
+       <width>231</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cboCliente">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>90</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtFecha">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>30</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -315,12 +292,17 @@
      </column>
      <column>
       <property name="text">
-       <string>Nombre</string>
+       <string>Fecha</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Apellidos</string>
+       <string>Importe.Pagar</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Cliente</string>
       </property>
      </column>
      <column>
@@ -330,17 +312,12 @@
      </column>
      <column>
       <property name="text">
-       <string>Concesionaria</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Vehiculo</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Importe.Pagar</string>
+       <string>Concesionaria</string>
       </property>
      </column>
     </widget>
