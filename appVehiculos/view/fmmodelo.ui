@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>671</width>
-    <height>664</height>
+    <height>689</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>70</y>
       <width>641</width>
-      <height>301</height>
+      <height>331</height>
      </rect>
     </property>
     <property name="font">
@@ -197,6 +197,19 @@
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="btnEliminar">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>270</y>
+       <width>281</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ELIMINAR</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -225,7 +238,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>390</y>
+      <y>410</y>
       <width>641</width>
       <height>251</height>
      </rect>

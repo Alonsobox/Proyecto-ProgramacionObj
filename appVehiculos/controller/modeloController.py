@@ -11,6 +11,7 @@ class ModeloController:
         self.listarModelo()
         self.ventana.tblModelos.cellClicked.connect(self.tblModelosclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -49,7 +50,17 @@ class ModeloController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.modelorepository.actualizarModelo(objModelo)             
         self.listarModelo()
+        self.btnlimpiarclick()
 
+    def btnEliminarClick(self):
+        codMod = self.ventana.txtCodigo.text().strip()
+        if not codMod:
+            QtWidgets.QMessageBox.critical(self.ventana, "Error", "El código del Modelo es obligatorio.")
+            return
+
+        self.modelorepository.eliminarMarca(codMod)
+        self.listarModelo()
+        self.btnlimpiarclick()
 
     
   
