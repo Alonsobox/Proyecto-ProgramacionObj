@@ -30,3 +30,11 @@ class MarcaRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+
+
+    def eliminarMarca(self, codMar):
+        cursor = self.conexion.cursor()
+        sql = "DELETE FROM marca WHERE cod_marca = ?"
+        cursor.execute(sql, (codMar,))
+        self.conexion.commit()
+        cursor.close()

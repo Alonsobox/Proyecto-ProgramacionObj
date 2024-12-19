@@ -11,6 +11,7 @@ class MarcaController:
         self.listarMarca()
         self.ventana.tblMarca.cellClicked.connect(self.tblMarcaclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarclick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -40,8 +41,17 @@ class MarcaController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.marcarepository.actualizarMarca(objMarca)             
         self.listarMarca()
+        self.btnlimpiarclick()
 
+    def btnEliminarclick(self):
+        codMar = self.ventana.txtCodigo.text().strip()
+        if not codMar:
+            QtWidgets.QMessageBox.critical(self.ventana, "Error", "El código de la Marca es obligatorio.")
+            return
 
+        self.marcarepository.eliminarMarca(codMar)
+        self.listarMarca()
+        self.btnlimpiarclick()
     
   
             
@@ -54,3 +64,5 @@ class MarcaController:
             self.ventana.tblMarca.setItem(fila, 1, QTableWidgetItem(str(objMarca[1])))
             self.ventana.tblMarca.setItem(fila, 2, QTableWidgetItem(str(objMarca[2])))
             fila += 1
+    
+    
