@@ -13,6 +13,49 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #000000;
+    border: 2px solid #0000FF;
+    border-radius: 10px; 
+}
+
+QMainWindow::title {
+    color: #FFFFFF; 
+    background-color: #1E90FF;
+}
+
+QMenuBar {
+    background-color: #1E90FF; 
+    color: #FFFFFF; 
+}
+
+QMenuBar::item:selected {
+    background-color: #FFD700;
+}
+
+QStatusBar {
+    background-color: #1E90FF; 
+    color: #FFFFFF; 
+}
+
+
+
+
+QWidget {
+    background-image: url(&quot;C:/Users/alons/OneDrive/Imágenes/fondo.jpg&quot;);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QMenuBar::item { color: white }
+
+
+QMenuBar::item:selected { 
+    background:rgb(0, 133, 199); 
+}
+
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
