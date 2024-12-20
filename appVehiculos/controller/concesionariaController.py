@@ -48,7 +48,7 @@ class ConcesionariaoController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.repositoryConcesionaria.actualizarConcesionaria(objConcesionaria)             
         self.listarConcesionaria()
-
+        self.btnlimpiarclick()
     
     def btnEliminarClick(self):
         codCon = self.ventana.txtCodigo.text().strip()

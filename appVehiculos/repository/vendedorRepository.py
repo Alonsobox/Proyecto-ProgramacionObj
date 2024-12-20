@@ -32,3 +32,10 @@ class VendedorRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+
+    def eliminarVendedor(self, codPer):
+        cursor = self.conexion.cursor()
+        sql = "delete from vendedor where cod_vendedor=?"
+        cursor.execute(sql, (codPer,))
+        self.conexion.commit()
+        cursor.close()
