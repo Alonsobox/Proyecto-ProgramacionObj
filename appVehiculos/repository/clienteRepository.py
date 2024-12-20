@@ -32,3 +32,11 @@ class ClienteRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+
+
+    def eliminarCliente(self, codPersona):
+        cursor = self.conexion.cursor()
+        sql = "delete from cliente where cod_cliente=?"
+        cursor.execute(sql, (codPersona,))
+        self.conexion.commit()
+        cursor.close()

@@ -11,6 +11,7 @@ class ClienteControler:
         self.listarCliente()
         self.ventana.tblClientes.cellClicked.connect(self.tblClientescellclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -49,7 +50,7 @@ class ClienteControler:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.clienteRepository.actualizarCliente(objCliente)             
         self.listarCliente()
-
+        self.btnlimpiarclick()
 
     
   
@@ -67,3 +68,10 @@ class ClienteControler:
             self.ventana.tblClientes.setItem(fila, 4, QTableWidgetItem(str(objCliente[4])))
             self.ventana.tblClientes.setItem(fila, 5, QTableWidgetItem(str(objCliente[5])))
             fila += 1
+
+
+    def btnEliminarClick(self):
+        codPersona = self.ventana.txtCodigo.text().strip()
+        self.clienteRepository.eliminarCliente(codPersona)
+        self.listarCliente()
+        self.btnlimpiarclick()
