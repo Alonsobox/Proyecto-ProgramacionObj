@@ -30,3 +30,11 @@ class ProveedorRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+    
+
+    def eliminarProveedor(self, codPro):
+        cursor = self.conexion.cursor()
+        sql = "delete from proveedor where cod_proveedor=?"
+        cursor.execute(sql, (codPro,))
+        self.conexion.commit()
+        cursor.close()

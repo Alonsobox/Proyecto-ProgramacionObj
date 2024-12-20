@@ -11,6 +11,7 @@ class ProveedorController:
         self.listarProveedor()
         self.ventana.tblProveedor.cellClicked.connect(self.tblProveedorclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -46,6 +47,7 @@ class ProveedorController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.provedorrepository.actualizarProveedor(objVendedor)             
         self.listarProveedor()
+        self.btnlimpiarclick()
 
 
     
@@ -66,3 +68,10 @@ class ProveedorController:
             # else:
             #     print(f"Error: objVendedor no tiene suficientes elementos: {objVendedor}")
             fila += 1
+    
+
+    def btnEliminarClick(self):
+        codCon = self.ventana.txtCodigo.text().strip()
+        self.provedorrepository.eliminarProveedor(codCon)
+        self.listarProveedor()
+        self.btnlimpiarclick()
