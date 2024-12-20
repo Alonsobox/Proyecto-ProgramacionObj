@@ -81,3 +81,4 @@ class ConcesionariaoController:
         proveedores = self.repositorySeleccionProveedor.listarSeleccionProveedor()
         for proveedor in proveedores:
             self.ventana.cboProveedor.addItem(proveedor[1],proveedor[0])
+        self.ventana.cboProveedor.setCurrentIndex(-1)

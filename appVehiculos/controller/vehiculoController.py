@@ -61,6 +61,11 @@ class VehiculoController:
         self.btnlimpiarclick()
 
 
+    def btnEliminarClick(self):
+        codVeh = self.ventana.txtCodigo.text().strip()
+        self.vehiculoRepository.eliminarVehiculo(codVeh)
+        self.listarVehiculo()
+        self.btnlimpiarclick()
     
   
             
@@ -82,7 +87,7 @@ class VehiculoController:
         combustion = self.seleccionCombustion.listarSeleccionCombustion()
         for combu in combustion:
             self.ventana.cboCombustion.addItem(combu[1],combu[0])
-
+        self.ventana.cboCombustion.setCurrentIndex(-1)
         # combustion = ["GLP", "Electrico", "Gasolida"] 
         # self.ventana.cboCombustion.addItems(combustion)
 
@@ -90,15 +95,11 @@ class VehiculoController:
         selecciones = self.seleccionMarca.listarSeleccionMarca()
         for seleccion in selecciones:
             self.ventana.cboMarca.addItem(seleccion[1],seleccion[0])
+        self.ventana.cboMarca.setCurrentIndex(-1)
 
     def listarSeleccionModelo(self):
         modelos = self.seleccionarModelo.listarSeleccionModelo()
         for modelo in modelos:
             self.ventana.cboModelo.addItem(modelo[1],modelo[0])
+        self.ventana.cboModelo.setCurrentIndex(-1)
 
-
-    def btnEliminarClick(self):
-        codVeh = self.ventana.txtCodigo.text().strip()
-        self.vehiculoRepository.eliminarVehiculo(codVeh)
-        self.listarVehiculo()
-        self.btnlimpiarclick()
