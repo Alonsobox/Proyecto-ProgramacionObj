@@ -22,6 +22,7 @@ class FacturaController:
         self.listarSeleccionConcesionaria()
         self.ventana.tblFactura.cellClicked.connect(self.tblFacturacellclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -48,55 +49,92 @@ class FacturaController:
             self.ventana.cboConcesionaria.setCurrentText(objFactura[6])
 
 
+
+
     def btnguardarclick(self):
         codFac = self.ventana.txtCodigo.text().strip()
         fechaFac = self.ventana.txtFecha.text().strip()
-        importeFac = self.ventana.txtImporte.text().strip()
+        importeFac = float(self.ventana.txtImporte.text().strip())
         codCli = self.ventana.cboCliente.currentData()
         codVen = self.ventana.cboVendedor.currentData()
         codVeh = self.ventana.cboVehiculo.currentData()
         codCon = self.ventana.cboConcesionaria.currentData()
 
-        # Imprimir valores para depuración
-        print(f"codFac: {codFac}, fechaFac: {fechaFac}, importeFac: {importeFac}, codCli: {codCli}, codVen: {codVen}, codVeh: {codVeh}, codCon: {codCon}")
-
-        # Verificar que el código de la factura no esté vacío
-        if not codFac:
-            QtWidgets.QMessageBox.critical(self.ventana, "Error", "El código de la factura es obligatorio.")
-            return
-
-        # Verificar que importeFac sea un número válido
-        try:
-            importeFac = float(importeFac)
-        except ValueError:
-            QtWidgets.QMessageBox.critical(self.ventana, "Error", "El importe debe ser un número.")
-            return
-
-        # Obtener los valores actuales de la factura, si existen
+        objFactura = Factura(codFac, fechaFac, importeFac, codCli, codVen, codVeh, codCon)
         factura_actual = self.facturaRepositort.obtenerFactura(codFac)
 
-        if factura_actual is None:     ##is none para verificar si la variable tiene el valor None
-            # Para nuevas facturas, verificar que todos los campos estén presentes
-            if not all([fechaFac, importeFac, codCli, codVen, codVeh, codCon]):## utilizamos not invertir la expresion booleana
-                QtWidgets.QMessageBox.critical(self.ventana, "Error", "Todos los campos son obligatorios para nuevas facturas.")
-                return
-            # Crear un objeto de factura con los valores proporcionados
-            objFactura = Factura(codFac, fechaFac, importeFac, codCli, codVen, codVeh, codCon)
+        if factura_actual is None:
             self.facturaRepositort.insertarFactura(objFactura)
         else:
-            # Para facturas existentes, usar los valores actuales si los nuevos están vacíos
             fechaFac = fechaFac or factura_actual[1]
             importeFac = importeFac or factura_actual[2]
             codCli = codCli or factura_actual[3]
             codVen = codVen or factura_actual[4]
             codVeh = codVeh or factura_actual[5]
             codCon = codCon or factura_actual[6]
-            # Crear un objeto de factura con los valores actuales y nuevos
             objFactura = Factura(codFac, fechaFac, importeFac, codCli, codVen, codVeh, codCon)
             self.facturaRepositort.actualizarFactura(objFactura)
         
         self.listarFactura()
         self.btnlimpiarclick()
+
+
+    # def btnguardarclick(self):
+    #     codFac = self.ventana.txtCodigo.text().strip()
+    #     fechaFac = self.ventana.txtFecha.text().strip()
+    #     importeFac = self.ventana.txtImporte.text().strip()
+    #     codCli = self.ventana.cboCliente.currentData()
+    #     codVen = self.ventana.cboVendedor.currentData()
+    #     codVeh = self.ventana.cboVehiculo.currentData()
+    #     codCon = self.ventana.cboConcesionaria.currentData()
+
+    #     # Imprimir valores para depuración
+    #     print(f"codFac: {codFac}, fechaFac: {fechaFac}, importeFac: {importeFac}, codCli: {codCli}, codVen: {codVen}, codVeh: {codVeh}, codCon: {codCon}")
+
+    #     # Verificar que el código de la factura no esté vacío
+    #     if not codFac:
+    #         QtWidgets.QMessageBox.critical(self.ventana, "Error", "El código de la factura es obligatorio.")
+    #         return
+
+    #     # Verificar que importeFac sea un número válido
+    #     try:
+    #         importeFac = float(importeFac)
+    #     except ValueError:
+    #         QtWidgets.QMessageBox.critical(self.ventana, "Error", "El importe debe ser un número.")
+    #         return
+
+    #     # Obtener los valores actuales de la factura, si existen
+    #     factura_actual = self.facturaRepositort.obtenerFactura(codFac)
+
+    #     if factura_actual is None:     ##is none para verificar si la variable tiene el valor None
+    #         # Para nuevas facturas, verificar que todos los campos estén presentes
+    #         if not all([fechaFac, importeFac, codCli, codVen, codVeh, codCon]):## utilizamos not invertir la expresion booleana
+    #             QtWidgets.QMessageBox.critical(self.ventana, "Error", "Todos los campos son obligatorios para nuevas facturas.")
+    #             return
+    #         # Crear un objeto de factura con los valores proporcionados
+    #         objFactura = Factura(codFac, fechaFac, importeFac, codCli, codVen, codVeh, codCon)
+    #         self.facturaRepositort.insertarFactura(objFactura)
+    #     else:
+    #         # Para facturas existentes, usar los valores actuales si los nuevos están vacíos
+    #         fechaFac = fechaFac or factura_actual[1]
+    #         importeFac = importeFac or factura_actual[2]
+    #         codCli = codCli or factura_actual[3]
+    #         codVen = codVen or factura_actual[4]
+    #         codVeh = codVeh or factura_actual[5]
+    #         codCon = codCon or factura_actual[6]
+    #         # Crear un objeto de factura con los valores actuales y nuevos
+    #         objFactura = Factura(codFac, fechaFac, importeFac, codCli, codVen, codVeh, codCon)
+    #         self.facturaRepositort.actualizarFactura(objFactura)
+        
+    #     self.listarFactura()
+    #     self.btnlimpiarclick()
+    
+    def btnEliminarClick(self):
+        codFac = self.ventana.txtCodigo.text().strip()
+        self.facturaRepositort.eliminarFactura(codFac)
+        self.listarFactura()
+        self.btnlimpiarclick()
+
 
 
     
@@ -120,20 +158,23 @@ class FacturaController:
         clientes = self.seleccionarClienteRepository.listarSeleccionCliente()
         for cliente in clientes:
             self.ventana.cboCliente.addItem(cliente[1],cliente[0])
-
+        self.ventana.cboCliente.setCurrentIndex(-1) # No seleccionar ningún ítem automáticamente
 
     def listarSeleccionVendedor(self):
         vendedores = self.selecionarVendedorRepository.listarSeleccionVendedor()
         for vendedor in vendedores:
             self.ventana.cboVendedor.addItem(vendedor[1],vendedor[0])
+        self.ventana.cboVendedor.setCurrentIndex(-1)
 
     def listarSeleccionVehiculo(self):
         vehiculos = self.selecionarVehiculoRepository.listarSeleccionVehiculo()
         for vehiculo in vehiculos:
             self.ventana.cboVehiculo.addItem(vehiculo[1], vehiculo[0])
             # self.ventana.cboVehiculo.addItem(str(vehiculo[0]))
+        self.ventana.cboVehiculo.setCurrentIndex(-1)
 
     def listarSeleccionConcesionaria(self):
         concesionarias = self.seleccionarConcesionariaRepository.listarSeleccionConcesionaria()
         for concesio in concesionarias:
             self.ventana.cboConcesionaria.addItem(concesio[1],concesio[0])
+        self.ventana.cboConcesionaria.setCurrentIndex(-1)

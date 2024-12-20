@@ -33,9 +33,9 @@ class FacturaRespository:
          self.conexion.commit() 
          cursor.close()
 
-    # def actualizarFactura(self, objFactura):
-    #     cursor =self.conexion.cursor()
-    #     sql= "UPDATE factura SET fecha_factura = '{}', importe_venta = '{}', cod_cliente = '{}', cod_vendedor = '{}', cod_vehiculo = '{}', cod_concesionaria = '{}' WHERE cod_factura = '{}'".format(objFactura.fechaFac, objFactura.importeFac, objFactura.codCli, objFactura.codVen, objFactura.codVeh, objFactura.codCon, objFactura.codFac)
-    #     cursor.execute(sql)
-    #     self.conexion.commit()
-    #     cursor.close()
+    def eliminarFactura(self, codFac):
+        cursor = self.conexion.cursor()
+        sql = "delete from factura where cod_factura= ?"
+        cursor.execute(sql, (codFac,))
+        self.conexion.commit()
+        cursor.close()
