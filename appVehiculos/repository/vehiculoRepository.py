@@ -30,3 +30,12 @@ class VehiculoRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+
+
+
+    def eliminarVehiculo(self, codVeh):
+        cursor = self.conexion.cursor()
+        sql = "delete from vehiculo where cod_vehiculo= ?"
+        cursor.execute(sql, (codVeh,))
+        self.conexion.commit()
+        cursor.close()

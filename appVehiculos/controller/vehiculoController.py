@@ -20,6 +20,7 @@ class VehiculoController:
         self.listarSeleccionModelo()
         self.ventana.tblVehiculo.cellClicked.connect(self.tblVehiculocellclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -57,6 +58,7 @@ class VehiculoController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.vehiculoRepository.actualizarVehiculo(objVehiculo)             
         self.listarVehiculo()
+        self.btnlimpiarclick()
 
 
     
@@ -93,3 +95,10 @@ class VehiculoController:
         modelos = self.seleccionarModelo.listarSeleccionModelo()
         for modelo in modelos:
             self.ventana.cboModelo.addItem(modelo[1],modelo[0])
+
+
+    def btnEliminarClick(self):
+        codVeh = self.ventana.txtCodigo.text().strip()
+        self.vehiculoRepository.eliminarVehiculo(codVeh)
+        self.listarVehiculo()
+        self.btnlimpiarclick()
