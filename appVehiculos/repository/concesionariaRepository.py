@@ -30,3 +30,10 @@ class ConcesionariaRepository:
         cursor.execute(sql)
         self.conexion.commit()
         cursor.close()
+
+    def eliminarConcesionaria(self, codCon):
+        cursor = self.conexion.cursor()
+        sql = "delete from concesionaria where cod_concesionaria= ?"
+        cursor.execute(sql, (codCon,))
+        self.conexion.commit()
+        cursor.close()

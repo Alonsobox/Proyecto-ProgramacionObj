@@ -13,6 +13,7 @@ class ConcesionariaoController:
         self.listarSeleccionProveedor()
         self.ventana.tblConcesionarias.cellClicked.connect(self.tblConcesionariasclicked)
         self.ventana.btnguardar.clicked.connect(self.btnguardarclick)
+        self.ventana.btnEliminar.clicked.connect(self.btnEliminarClick)
         self.ventana.btnlimpiar.clicked.connect(self.btnlimpiarclick)
 
     def btnlimpiarclick(self):
@@ -47,6 +48,18 @@ class ConcesionariaoController:
         else:                                                           ##el vendedor Existe en la BD, entonces actualiza
             self.repositoryConcesionaria.actualizarConcesionaria(objConcesionaria)             
         self.listarConcesionaria()
+
+    
+    def btnEliminarClick(self):
+        codCon = self.ventana.txtCodigo.text().strip()
+        if not codCon:
+            QtWidgets.QMessageBox.critical(self.ventana, "Error", "El código del modelo es obligatorio.")
+            return
+
+        self.repositoryConcesionaria.eliminarConcesionaria(codCon)
+        self.listarConcesionaria()
+        self.btnlimpiarclick()
+
 
 
     
